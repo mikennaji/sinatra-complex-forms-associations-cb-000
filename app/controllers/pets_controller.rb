@@ -29,7 +29,7 @@ class PetsController < ApplicationController
    erb :'/pets/edit'
  end
 
- 
+
   patch '/pets/:id' do
     #if !params[:pet].keys.include?("owner_ids")
     #  params[:pet]["owner_ids"] = []
