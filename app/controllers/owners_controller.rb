@@ -41,6 +41,7 @@ end
       if !params["pet"]["name"].empty?
         @owner.pets << Pet.create(name: params["pet"]["name"])
       end
+      pet.save
       redirect "owners/#{@owner.id}"
   end
 end
