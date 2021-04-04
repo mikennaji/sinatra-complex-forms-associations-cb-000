@@ -12,10 +12,15 @@
     <p>Select an existing owner or create a new one below.</p>
 
 
-    <h3>Existing Owners</h3>
-    <% @owners.each do |owner| %>
-<input type="radio" name="pet[owner_id]" id="<%= owner.id %>" value="<%= owner.id %>"><%= owner.name %></input><br>
-  <% end %>
+    <label>Choose an existing pet:</label>
+
+   <br></br>
+
+   <%@pets.each do |pet|%>
+     <input type="checkbox" name="owner[pet_ids][]" value="<%=pet.id%>" id="<%=pet.name%>" <%='checked' if @owner.pets.include?(pet) %>><%=pet.name%></input>
+   <%end%>
+
+   <br></br>
 
     <h3>New Owner</h3>
     <label>Owner Name: </label>
