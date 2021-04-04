@@ -24,15 +24,15 @@ end
   end
 
   patch '/pets/:id' do
-    if !params[:pet].keys.include?("owner_ids")
-      params[:pet]["owner_ids"] = []
-      end
+    #if !params[:pet].keys.include?("owner_ids")
+    #  params[:pet]["owner_ids"] = []
+    #  end
       #######
 
       @pet = Pet.find(params[:id])
       @pet.update(params["pet"])
       if !params["owner"]["name"].empty?
-        @pet.owner << Owner.create(name: params["owner"]["name"])
+        @pet.owner= Owner.create(name: params["owner"])
       end
     redirect to "pets/#{@pet.id}"
   end
